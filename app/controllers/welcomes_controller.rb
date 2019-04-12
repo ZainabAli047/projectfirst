@@ -16,6 +16,6 @@ class WelcomesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :age, :about, :email, :gender, hobbies:[])    
+    params.require(:profile).permit(:first_name, :last_name, :age, :about, :email, :gender, :avatar, hobbies: [])
   end
 end

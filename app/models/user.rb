@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile
 
+
   after_create :set_profile
 
   def set_profile
