@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <%= form_for :profile, url: welcome_path, method: "PATCH" do |f|  %>
+    FIRST NAME : <%= f.text_field :first_name %><br>
+    LAST NAME : <%= f.text_field :last_name %><br>
+    EMAIL : <%= f.text_field :email %><br>
+    AGE : <%= f.number_field :age %><br>
+    GENDER : 
+    <%= f.radio_button :gender, 'Male' %>Male<br>
+    <%= f.radio_button :gender, 'Female' %>Female<br>
+    <% %w(hockey cricket reading drawing chess).each do |hoby| %>
+      <%= f.check_box :hobbies, { multiple: true }, hoby, false %>
+      <%= f.label hoby.capitalize, for: "profile_hobbies_#{hoby}" %>
+    <% end %>
+    <br>
+    <%= f.text_area :about %><br>
+    <%= f.submit %>
+  <% end %>
+<% end %>
