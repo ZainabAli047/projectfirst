@@ -1,7 +1,11 @@
 <% if user_signed_in? %>
 
-  <% if @profile.avatar.present? %>
-    <%= image_tag @profile.avatar.url(:thumb) %>
+  <%# if @profile.avatar.present? %>
+    <%#= image_tag @profile.avatar.url(:medium) %>
+  <%# end%>
+
+  <% if @profile.my_avatar.present? %>
+    <%= image_tag @profile.my_avatar.url(:thumb) %>
   <% end%>
 
   <%= form_for :profile, url: welcome_path, method: "PATCH" , html: { multipart: true } do |f|  %>
@@ -18,8 +22,10 @@
     <% end %>
     <br>
     <%= f.text_area :about %><br>
-    <%= f.file_field :avatar %><br>
+    <%#= f.file_field :avatar %><br>
+    <%= f.file_field :my_avatar %><br>
     <%= f.submit %>
   <% end %>
+
 <% end %>
 
